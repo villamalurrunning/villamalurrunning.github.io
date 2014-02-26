@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Carrera popular de Villamalur</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+function initialize() {
+  var villamalur = new google.maps.LatLng(39.964491,-0.395256);
+  var mapOptions = {
+    zoom: 11,
+    center: villamalur,
+	mapTypeId: 'satellite'
+  }
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var ctaLayer = new google.maps.KmlLayer({
+    url: 'http:/villamalurrunning.github.io/VillamalurSoloRuta.kmz'
+  });
+  ctaLayer.setMap(map);
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="links">Aqui podeis descargar la ruta en KMZ que se puede abrir con el Google Earth para verlo en 3D y sacar el perfil de elevacion ->  
+	<a href="http://villamalurrunning.github.io/VillamalurSoloRuta.kmz">DESCARGAR</a> </div>
+	<div id="links2">Tambien esta la ruta con las imagenes que sacamos ese dia (ojo! 213 Megas) ->  
+	<a href="https://www.dropbox.com/s/5leaxjzetb1da1a/VillamalurConFotos.kmz">DESCARGAR</a> </div>
+    <div id="map-canvas"></div>
+	<div id="img"><img src="rutaDefinitiva.PNG" alt="Resumen de la ruta" height="650" width="1100"></div>
+	
+  </body>
+</html>
